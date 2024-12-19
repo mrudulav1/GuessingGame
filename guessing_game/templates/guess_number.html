@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .message.correct {
+            color: green;
+            font-weight: bold;
+        }
+        .message.error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Guess the Number Game</h1>
+    <p>Guess a number between 1 and 100!</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="number" name="guess" placeholder="Enter your guess" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="message">
+        <p>{{ message }}</p>
+        {% if attempts > 0 %}
+            <p>Attempts: {{ attempts }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
