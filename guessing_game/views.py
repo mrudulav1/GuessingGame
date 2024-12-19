@@ -33,5 +33,5 @@ def guess_number(request):
     else:
         message = "Guess a number between 1 and 100."
 
-    return render(request, 'guessing_game/guess_number.html', {'message': message, 'attempts': attempts})
+    return render(request, 'guess_number.html', {'message': message, 'attempts': attempts})
 
